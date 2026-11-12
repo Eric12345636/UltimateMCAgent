@@ -7,7 +7,10 @@ authors = [
     { name = "Eric12345636", email = "2549048004@qq.com" }
 ]
 requires-python = ">=3.12"
-dependencies = []
+dependencies = [
+    "aiodns>=4.0.4",
+    "vllm>=0.32.0",
+]
 
 [project.scripts]
 ultimatemcagent = "ultimatemcagent:main"
