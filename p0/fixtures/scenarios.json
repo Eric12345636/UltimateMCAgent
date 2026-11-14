@@ -1,0 +1,204 @@
+{
+  "_comment": "P0 夹具：形状严格对齐 mc-agent-api docs/API.md 的响应示例。距离按欧氏距离算过，和 API 的 dist 字段一致。teacher_calls 是教师轨迹里真实会发出的调用，用来测指针保真度。",
+  "scenarios": [
+    {
+      "name": "forest",
+      "_desc": "林地开局：有树、有工作台、附近有僵尸和牛。生存采集链第一段。",
+      "status": {
+        "username": "Agent_1",
+        "pos": [10, 64, 10],
+        "speed": 0,
+        "velocity": [0, 0, 0],
+        "yaw": 1.57,
+        "dimension": "overworld",
+        "gamemode": "survival",
+        "health": 20,
+        "food": 20,
+        "saturation": 5,
+        "xp_level": 0,
+        "xp_progress": 0.42,
+        "oxygen": 20,
+        "armor_points": 0,
+        "held": { "name": "iron_sword", "count": 1, "slot": 36 },
+        "offhand": null,
+        "effects": [],
+        "on_fire": false,
+        "is_sleeping": false,
+        "in_water": false,
+        "submerged": false,
+        "in_lava": false,
+        "in_vehicle": null,
+        "sneaking": false,
+        "blocking": false,
+        "using_item": null,
+        "time_of_day": 731,
+        "is_day": true,
+        "raining": false,
+        "thundering": false,
+        "biome": "forest",
+        "on_ground": true,
+        "alive": true,
+        "ready": true,
+        "busy": null,
+        "nearest_hostile": { "id": 812, "name": "zombie", "dist": 12.6 }
+      },
+      "inventory": {
+        "items": [
+          { "name": "oak_log", "count": 12, "slot": 0 },
+          { "name": "stick", "count": 4, "slot": 1 },
+          { "name": "crafting_table", "count": 1, "slot": 2 },
+          { "name": "iron_sword", "count": 1, "slot": 36 }
+        ],
+        "armor": { "head": null, "chest": null, "legs": null, "feet": null },
+        "offhand": null,
+        "held": { "name": "iron_sword", "count": 1, "slot": 36 },
+        "empty_slots": 27
+      },
+      "findBlocks": {
+        "total": 5,
+        "blocks": [
+          { "name": "crafting_table", "pos": [8, 64, 12], "dist": 2.8, "properties": {} },
+          { "name": "oak_log", "pos": [14, 64, 12], "dist": 4.5, "properties": { "axis": "y" } },
+          { "name": "stone", "pos": [6, 63, 8], "dist": 4.6, "properties": {} },
+          { "name": "oak_log", "pos": [16, 63, 9], "dist": 6.2, "properties": { "axis": "x" } },
+          { "name": "oak_log", "pos": [10, 64, 17], "dist": 7.0, "properties": { "axis": "y" } }
+        ]
+      },
+      "entities": {
+        "entities": [
+          { "id": 900, "type": "animal", "name": "cow", "pos": [13, 64, 15], "dist": 5.8, "health": 10 },
+          { "id": 812, "type": "hostile", "name": "zombie", "pos": [22, 64, 14], "dist": 12.6, "health": 20 }
+        ]
+      },
+      "events": {
+        "since": 39,
+        "last_seq": 41,
+        "total": 2,
+        "events": [
+          { "seq": 40, "t": 1791881330000, "type": "pickup", "item": "oak_log", "count": 3 },
+          { "seq": 41, "t": 1791881333488, "type": "hurt", "health": 17, "damage": 3, "source": "mob_attack", "source_entity": { "id": 812, "name": "zombie" } }
+        ]
+      },
+      "teacher_calls": [
+        { "verb": "dig", "args": { "x": 14, "y": 64, "z": 12 } },
+        { "verb": "dig", "args": { "x": 16, "y": 63, "z": 9 } },
+        { "verb": "move_to", "args": { "x": 14, "y": 64, "z": 12 } },
+        { "verb": "move_to", "args": { "x": 10, "z": 17 } },
+        { "verb": "move_to", "args": { "entity_id": 812, "range": 2 } },
+        { "verb": "place", "args": { "item": "crafting_table", "x": 8, "y": 64, "z": 12 } },
+        { "verb": "place", "args": { "item": "stick" } },
+        { "verb": "craft", "args": { "item": "crafting_table", "count": 1 } },
+        { "verb": "interact", "args": { "entity_id": 900, "item": "wheat" } },
+        { "verb": "interact", "args": { "x": 10, "y": 64, "z": 17 } },
+        { "verb": "attack", "args": { "entity_id": 812, "max_hits": 1 } },
+        { "verb": "attack", "args": { "entity_id": 812 } },
+        { "verb": "use_item", "args": { "item": "oak_log", "target": { "pos": [10, 64, 17] } } },
+        { "verb": "use_item", "args": { "item": "ender_pearl", "target": { "entity_id": 812 }, "ms": 800 } },
+        { "verb": "equip", "args": { "item": "iron_sword", "slot": "hand" } },
+        { "verb": "drop", "args": { "item": "oak_log", "count": 5 } },
+        { "verb": "chat", "args": { "message": "Hello world!" } },
+        { "verb": "look", "args": { "entity_id": 812 } },
+        { "verb": "look", "args": { "yaw": 1.57, "pitch": 0 } },
+        { "verb": "posture", "args": { "sneak": true } },
+        { "verb": "control", "args": { "forward": true, "jump": true, "ms": 400 } },
+        { "verb": "shoot", "args": { "entity_id": 812, "weapon": "bow", "charge_ms": 1100 } }
+      ]
+    },
+    {
+      "name": "mine",
+      "_desc": "矿洞深处：石头、煤、铁矿洞里有个苦力怕。生存采集链第二段。",
+      "status": {
+        "username": "Agent_1",
+        "pos": [100, 12, -50],
+        "speed": 0,
+        "velocity": [0, 0, 0],
+        "yaw": -0.79,
+        "dimension": "overworld",
+        "gamemode": "survival",
+        "health": 14,
+        "food": 13,
+        "saturation": 2.1,
+        "xp_level": 1,
+        "xp_progress": 0.15,
+        "oxygen": 20,
+        "armor_points": 7,
+        "held": { "name": "stone_pickaxe", "count": 1, "slot": 36 },
+        "offhand": { "name": "torch", "count": 32, "slot": 45 },
+        "effects": [{ "name": "speed", "level": 1, "duration_s": 24.5 }],
+        "on_fire": false,
+        "is_sleeping": false,
+        "in_water": false,
+        "submerged": false,
+        "in_lava": false,
+        "in_vehicle": null,
+        "sneaking": false,
+        "blocking": false,
+        "using_item": null,
+        "time_of_day": 13000,
+        "is_day": false,
+        "raining": false,
+        "thundering": false,
+        "biome": "cave",
+        "on_ground": true,
+        "alive": true,
+        "ready": true,
+        "busy": null,
+        "nearest_hostile": { "id": 4301, "name": "creeper", "dist": 7.6 }
+      },
+      "inventory": {
+        "items": [
+          { "name": "cobblestone", "count": 34, "slot": 0 },
+          { "name": "coal", "count": 9, "slot": 1 },
+          { "name": "raw_iron", "count": 3, "slot": 2 },
+          { "name": "stone_pickaxe", "count": 1, "slot": 36 },
+          { "name": "torch", "count": 32, "slot": 45 }
+        ],
+        "armor": {
+          "head": null,
+          "chest": { "name": "iron_chestplate", "count": 1, "slot": 6, "durability": [240, 240] },
+          "legs": null,
+          "feet": null
+        },
+        "offhand": { "name": "torch", "count": 32, "slot": 45 },
+        "held": { "name": "stone_pickaxe", "count": 1, "slot": 36 },
+        "empty_slots": 24
+      },
+      "findBlocks": {
+        "total": 4,
+        "blocks": [
+          { "name": "cobblestone", "pos": [103, 12, -52], "dist": 3.6, "properties": {} },
+          { "name": "oak_log", "pos": [98, 12, -47], "dist": 4.6, "properties": { "axis": "y" } },
+          { "name": "coal_ore", "pos": [101, 12, -54], "dist": 4.6, "properties": {} },
+          { "name": "iron_ore", "pos": [106, 11, -49], "dist": 6.2, "properties": {} }
+        ]
+      },
+      "entities": {
+        "entities": [
+          { "id": 4301, "type": "hostile", "name": "creeper", "pos": [107, 12, -53], "dist": 7.6, "health": 20 },
+          { "id": 4302, "type": "hostile", "name": "skeleton", "pos": [112, 12, -56], "dist": 13.4, "health": 20 }
+        ]
+      },
+      "events": {
+        "since": 120,
+        "last_seq": 122,
+        "total": 2,
+        "events": [
+          { "seq": 121, "t": 1791881400000, "type": "effect_start", "name": "speed", "level": 1, "duration_s": 30 },
+          { "seq": 122, "t": 1791881401000, "type": "hurt", "health": 14, "damage": 2, "source": "mob_attack" }
+        ]
+      },
+      "teacher_calls": [
+        { "verb": "dig", "args": { "x": 101, "y": 12, "z": -54 } },
+        { "verb": "dig", "args": { "x": 106, "y": 11, "z": -49 } },
+        { "verb": "move_to", "args": { "x": 103, "y": 12, "z": -52 } },
+        { "verb": "move_to", "args": { "entity_id": 4301 } },
+        { "verb": "attack", "args": { "entity_id": 4301, "max_hits": 5, "interval_ms": 300 } },
+        { "verb": "use_item", "args": { "item": "torch", "target": { "pos": [98, 12, -47] } } },
+        { "verb": "equip", "args": { "item": "stone_pickaxe", "slot": "hand" } },
+        { "verb": "craft", "args": { "item": "torch", "count": 4 } },
+        { "verb": "posture", "args": { "sneak": true, "shield": true } },
+        { "verb": "look", "args": { "x": 101, "y": 12, "z": -54 } }
+      ]
+    }
+  ]
+}
