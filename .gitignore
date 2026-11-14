@@ -9,5 +9,10 @@ wheels/
 # Virtual environments
 .venv
 
-models/
-data/
+# 只忽略仓库根下的本地运行目录。p0/data 与 p1/data 是编码契约，需要入库。
+/models/
+/data/
+
+# Node 依赖与本机口令（mc-agent-api 里同样忽略）
+node_modules/
+config.json

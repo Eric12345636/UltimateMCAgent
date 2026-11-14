@@ -1,0 +1,150 @@
+{
+  "version": 1,
+  "_comment": "上层决策回归场景。每个场景是一份原始 API 观测 + 期望行为。expect 里的字段驱动 p1/eval/rubric.py 的确定性评分——不依赖 Minecraft 服务端。",
+  "scenarios": [
+    {
+      "name": "plain_collect",
+      "desc": "林地开局，资源在手边，远处有僵尸",
+      "raw": {
+        "status": { "health": 20, "food": 20, "pos": [10, 64, 10], "is_day": true, "biome": "forest", "held": { "name": "iron_sword" } },
+        "inventory": { "items": [{ "name": "oak_log", "count": 12 }, { "name": "stick", "count": 4 }, { "name": "crafting_table", "count": 1 }, { "name": "iron_sword", "count": 1 }] },
+        "findBlocks": { "blocks": [{ "name": "crafting_table", "dist": 2.8 }, { "name": "oak_log", "dist": 4.5 }, { "name": "stone", "dist": 4.6 }] },
+        "entities": { "entities": [{ "id": 812, "type": "hostile", "name": "zombie", "dist": 12.6 }, { "id": 900, "type": "animal", "name": "cow", "dist": 5.8 }] },
+        "events": { "events": [{ "type": "hurt", "damage": 3 }] }
+      },
+      "expect": { "threat_level": "safe", "must_not_include": ["flee"], "prefer": ["gather", "mine", "goto"] }
+    },
+    {
+      "name": "zombie_point_blank",
+      "desc": "僵尸贴脸 2.5 格，必须先逃",
+      "raw": {
+        "status": { "health": 14, "food": 20, "pos": [10, 64, 10], "is_day": true, "biome": "forest", "held": { "name": "iron_sword" } },
+        "inventory": { "items": [{ "name": "oak_log", "count": 12 }, { "name": "iron_sword", "count": 1 }] },
+        "findBlocks": { "blocks": [{ "name": "crafting_table", "dist": 2.8 }, { "name": "oak_log", "dist": 4.5 }] },
+        "entities": { "entities": [{ "id": 812, "type": "hostile", "name": "zombie", "dist": 2.5 }] },
+        "events": { "events": [{ "type": "hurt", "damage": 2 }] }
+      },
+      "expect": { "threat_level": "danger", "first_must_be": "flee" }
+    },
+    {
+      "name": "zombie_alert",
+      "desc": "僵尸 6 格，警戒档",
+      "raw": {
+        "status": { "health": 20, "food": 20, "pos": [10, 64, 10], "is_day": true, "biome": "forest", "held": { "name": "iron_sword" } },
+        "inventory": { "items": [{ "name": "oak_log", "count": 12 }, { "name": "stick", "count": 4 }, { "name": "iron_sword", "count": 1 }] },
+        "findBlocks": { "blocks": [{ "name": "oak_log", "dist": 4.5 }, { "name": "stone", "dist": 4.6 }] },
+        "entities": { "entities": [{ "id": 812, "type": "hostile", "name": "zombie", "dist": 6.0 }] },
+        "events": { "events": [] }
+      },
+      "expect": { "threat_level": "warn", "must_not_include": ["flee"] }
+    },
+    {
+      "name": "cave_coal",
+      "desc": "矿洞深处有煤矿和铁矿",
+      "raw": {
+        "status": { "health": 14, "food": 13, "pos": [100, 12, -50], "is_day": false, "biome": "cave", "held": { "name": "stone_pickaxe" } },
+        "inventory": { "items": [{ "name": "cobblestone", "count": 34 }, { "name": "coal", "count": 9 }, { "name": "raw_iron", "count": 3 }, { "name": "torch", "count": 32 }] },
+        "findBlocks": { "blocks": [{ "name": "cobblestone", "dist": 3.6 }, { "name": "coal_ore", "dist": 4.6 }, { "name": "iron_ore", "dist": 6.2 }] },
+        "entities": { "entities": [{ "id": 4301, "type": "hostile", "name": "creeper", "dist": 7.6 }, { "id": 4302, "type": "hostile", "name": "skeleton", "dist": 13.4 }] },
+        "events": { "events": [{ "type": "hurt", "damage": 2 }] }
+      },
+      "expect": { "threat_level": "warn", "must_not_include": ["flee"], "prefer": ["gather", "mine"] }
+    },
+    {
+      "name": "hungry_low_hp",
+      "desc": "残血且饥饿，附近没有威胁",
+      "raw": {
+        "status": { "health": 6, "food": 4, "pos": [22, 64, -8], "is_day": true, "biome": "plains", "held": { "name": "stone_axe" } },
+        "inventory": { "items": [{ "name": "oak_log", "count": 3 }, { "name": "bread", "count": 2 }, { "name": "stone_axe", "count": 1 }] },
+        "findBlocks": { "blocks": [{ "name": "oak_log", "dist": 5.1 }, { "name": "grass_block", "dist": 3.2 }] },
+        "entities": { "entities": [{ "id": 900, "type": "animal", "name": "cow", "dist": 6.0 }] },
+        "events": { "events": [{ "type": "hurt", "damage": 4 }] }
+      },
+      "expect": { "threat_level": "none", "prefer": ["eat", "gather"] }
+    },
+    {
+      "name": "no_resources",
+      "desc": "附近什么方块都没有",
+      "raw": {
+        "status": { "health": 20, "food": 20, "pos": [300, 64, 300], "is_day": true, "biome": "ocean", "held": { "name": null } },
+        "inventory": { "items": [] },
+        "findBlocks": { "blocks": [] },
+        "entities": { "entities": [] },
+        "events": { "events": [] }
+      },
+      "expect": { "threat_level": "none" }
+    },
+    {
+      "name": "creeper_very_close",
+      "desc": "苦力怕 3 格，它会爆炸",
+      "raw": {
+        "status": { "health": 18, "food": 20, "pos": [100, 12, -50], "is_day": false, "biome": "cave", "held": { "name": "stone_pickaxe" } },
+        "inventory": { "items": [{ "name": "cobblestone", "count": 12 }, { "name": "torch", "count": 8 }] },
+        "findBlocks": { "blocks": [{ "name": "cobblestone", "dist": 2.9 }, { "name": "coal_ore", "dist": 5.0 }] },
+        "entities": { "entities": [{ "id": 4301, "type": "hostile", "name": "creeper", "dist": 3.0 }] },
+        "events": { "events": [{ "type": "hurt", "damage": 1 }] }
+      },
+      "expect": { "threat_level": "danger", "first_must_be": "flee" }
+    },
+    {
+      "name": "night_outside",
+      "desc": "夜晚在户外，僵尸成群",
+      "raw": {
+        "status": { "health": 20, "food": 18, "pos": [5, 64, 5], "is_day": false, "biome": "plains", "held": { "name": "iron_sword" } },
+        "inventory": { "items": [{ "name": "oak_log", "count": 5 }, { "name": "iron_sword", "count": 1 }] },
+        "findBlocks": { "blocks": [{ "name": "oak_log", "dist": 4.0 }, { "name": "stone", "dist": 6.0 }] },
+        "entities": { "entities": [{ "id": 811, "type": "hostile", "name": "zombie", "dist": 3.4 }, { "id": 813, "type": "hostile", "name": "skeleton", "dist": 9.0 }] },
+        "events": { "events": [] }
+      },
+      "expect": { "threat_level": "danger", "first_must_be": "flee" }
+    },
+    {
+      "name": "workbench_ready",
+      "desc": "有木头有木棍，可以做工作台了",
+      "raw": {
+        "status": { "health": 20, "food": 20, "pos": [8, 64, 12], "is_day": true, "biome": "forest", "held": { "name": "iron_axe" } },
+        "inventory": { "items": [{ "name": "oak_log", "count": 6 }, { "name": "stick", "count": 4 }, { "name": "iron_axe", "count": 1 }] },
+        "findBlocks": { "blocks": [{ "name": "oak_log", "dist": 3.2 }, { "name": "birch_log", "dist": 7.5 }] },
+        "entities": { "entities": [] },
+        "events": { "events": [] }
+      },
+      "expect": { "threat_level": "none", "prefer": ["craft"] }
+    },
+    {
+      "name": "underwater_low_air",
+      "desc": "在水里氧气快没了",
+      "raw": {
+        "status": { "health": 18, "food": 20, "pos": [50, 62, 50], "is_day": true, "biome": "ocean", "in_water": true, "held": { "name": "iron_sword" } },
+        "inventory": { "items": [{ "name": "cod", "count": 2 }, { "name": "iron_sword", "count": 1 }] },
+        "findBlocks": { "blocks": [{ "name": "sand", "dist": 4.5 }] },
+        "entities": { "entities": [] },
+        "events": { "events": [] }
+      },
+      "expect": { "threat_level": "none" }
+    },
+    {
+      "name": "skeleton_just_out_of_range",
+      "desc": "骷髅 9 格，刚好越过警戒线",
+      "raw": {
+        "status": { "health": 20, "food": 20, "pos": [0, 64, 0], "is_day": true, "biome": "plains", "held": { "name": "bow" } },
+        "inventory": { "items": [{ "name": "arrow", "count": 32 }, { "name": "bow", "count": 1 }] },
+        "findBlocks": { "blocks": [{ "name": "oak_log", "dist": 4.0 }] },
+        "entities": { "entities": [{ "id": 4302, "type": "hostile", "name": "skeleton", "dist": 9.0 }] },
+        "events": { "events": [] }
+      },
+      "expect": { "threat_level": "safe", "must_not_include": ["flee"] }
+    },
+    {
+      "name": "lots_of_drops",
+      "desc": "刚打完怪，地上全是掉落",
+      "raw": {
+        "status": { "health": 16, "food": 16, "pos": [70, 64, -12], "is_day": true, "biome": "forest", "held": { "name": "iron_sword" } },
+        "inventory": { "items": [{ "name": "iron_sword", "count": 1 }, { "name": "oak_log", "count": 8 }] },
+        "findBlocks": { "blocks": [{ "name": "oak_log", "dist": 3.3 }] },
+        "entities": { "entities": [{ "id": 812, "type": "hostile", "name": "zombie", "dist": 14.0 }, { "id": 900, "type": "animal", "name": "cow", "dist": 4.0 }] },
+        "events": { "events": [{ "type": "pickup", "item": "rotten_flesh", "count": 2 }, { "type": "hurt", "damage": 3 }] }
+      },
+      "expect": { "threat_level": "safe", "must_not_include": ["flee"] }
+    }
+  ]
+}

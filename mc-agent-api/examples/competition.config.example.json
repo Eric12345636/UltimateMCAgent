@@ -1,0 +1,9 @@
+{
+  "api": "https://mc-api.windywindie.top/api/v1",
+  "start": null,
+  "rules": "../../RULES.md",
+  "islands": {
+    "overworld": { "center": null, "radius": null }
+  },
+  "confirmedAdvancements": []
+}

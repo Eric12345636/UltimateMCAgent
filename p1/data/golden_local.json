@@ -1,0 +1,3272 @@
+{
+ "version": 1,
+ "note": "L-obs 编码黄金向量。Node 侧（src/coe/local.js）是真值，Python 侧必须逐 token 一致。改编码后重新生成。",
+ "tokens": [
+  "-1",
+  "-2",
+  "-3",
+  "0",
+  "1",
+  "2",
+  "3",
+  "<geom>",
+  "<goal>",
+  "<prev>",
+  "<self>",
+  "<threat>",
+  "bl0",
+  "bl1",
+  "climb",
+  "fd0",
+  "fd1",
+  "fd2",
+  "fd3",
+  "fd4",
+  "fd5",
+  "flat",
+  "g0",
+  "g1",
+  "g2",
+  "g3",
+  "g4",
+  "g5",
+  "g6",
+  "g7",
+  "gb0",
+  "gb1",
+  "gb2",
+  "gb3",
+  "gb4",
+  "gb5",
+  "gb6",
+  "gb7",
+  "gb8",
+  "gcclimb",
+  "gcflat",
+  "gchaz",
+  "gchole",
+  "gcliq",
+  "gcmagma",
+  "gcna",
+  "gcwall",
+  "gd0",
+  "gd1",
+  "gd2",
+  "gd3",
+  "gd4",
+  "gd5",
+  "gdn",
+  "gh0",
+  "gh1",
+  "gh2",
+  "gh3",
+  "gh4",
+  "gh5",
+  "gh6",
+  "gh7",
+  "gtattack",
+  "gtcraft",
+  "gteat",
+  "gtflee",
+  "gtgoto",
+  "gtidle",
+  "gtmine",
+  "gv0",
+  "gv1",
+  "haz",
+  "hole",
+  "hp0",
+  "hp1",
+  "hp2",
+  "hp3",
+  "hp4",
+  "hp5",
+  "hp6",
+  "hu0",
+  "hu1",
+  "hu2",
+  "hu3",
+  "hu4",
+  "il0",
+  "il1",
+  "iw0",
+  "iw1",
+  "liq",
+  "magma",
+  "of0",
+  "of1",
+  "og0",
+  "og1",
+  "open",
+  "ox0",
+  "ox1",
+  "ox2",
+  "ox3",
+  "pa0",
+  "pa1",
+  "pd0",
+  "pd1",
+  "ph0",
+  "ph1",
+  "pj0",
+  "pj1",
+  "pk0",
+  "pk1",
+  "pm0",
+  "pm1",
+  "pm2",
+  "pm3",
+  "pm4",
+  "pm5",
+  "pm6",
+  "pm7",
+  "pm8",
+  "ps0",
+  "ps1",
+  "sk0",
+  "sk1",
+  "sp0",
+  "sp1",
+  "tb0",
+  "tb1",
+  "tb2",
+  "tb3",
+  "tb4",
+  "tb5",
+  "tb6",
+  "tb7",
+  "tb8",
+  "tbn",
+  "td0",
+  "td1",
+  "td2",
+  "td3",
+  "td4",
+  "td5",
+  "tdf",
+  "th0",
+  "th1",
+  "th2",
+  "th3",
+  "thf",
+  "tt0",
+  "tt1",
+  "tt2",
+  "tt3",
+  "tt4",
+  "wall"
+ ],
+ "cases": [
+  {
+   "name": "flat_plain",
+   "desc": "平地，四个方向都是 flat",
+   "world": {
+    "fill_below": 63,
+    "fill": "stone",
+    "blocks": {}
+   },
+   "entity": {},
+   "entities": {},
+   "goal": {
+    "type": "idle"
+   },
+   "sense": {
+    "self": {
+     "hp": 20,
+     "food": 20,
+     "oxy": 20,
+     "on_ground": true,
+     "in_water": false,
+     "in_lava": false,
+     "on_fire": false,
+     "sneaking": false,
+     "sprinting": false,
+     "blocking": false,
+     "hurt_ticks": 99
+    },
+    "geom": [
+     {
+      "terr": [
+       "flat",
+       "flat",
+       "flat",
+       "flat"
+      ],
+      "height": 0
+     },
+     {
+      "terr": [
+       "flat",
+       "flat",
+       "flat",
+       "flat"
+      ],
+      "height": 0
+     },
+     {
+      "terr": [
+       "flat",
+       "flat",
+       "flat",
+       "flat"
+      ],
+      "height": 0
+     },
+     {
+      "terr": [
+       "flat",
+       "flat",
+       "flat",
+       "flat"
+      ],
+      "height": 0
+     },
+     {
+      "terr": [
+       "flat",
+       "flat",
+       "flat",
+       "flat"
+      ],
+      "height": 0
+     },
+     {
+      "terr": [
+       "flat",
+       "flat",
+       "flat",
+       "flat"
+      ],
+      "height": 0
+     },
+     {
+      "terr": [
+       "flat",
+       "flat",
+       "flat",
+       "flat"
+      ],
+      "height": 0
+     },
+     {
+      "terr": [
+       "flat",
+       "flat",
+       "flat",
+       "flat"
+      ],
+      "height": 0
+     }
+    ],
+    "threat": {
+     "present": false,
+     "bearing": null,
+     "dist": null,
+     "hpFrac": null,
+     "hurtTicks": 99
+    },
+    "goal": {
+     "type": "idle",
+     "dist": null,
+     "visible": false,
+     "targetClass": null,
+     "bearing": null
+    },
+    "prev": {
+     "move": 8,
+     "sprint": false,
+     "jump": false,
+     "sneak": false,
+     "shield": false,
+     "attack": false,
+     "dig": false
+    }
+   },
+   "obs": [
+    "<self>",
+    "hp6",
+    "fd5",
+    "ox3",
+    "og1",
+    "iw0",
+    "il0",
+    "of0",
+    "sk0",
+    "sp0",
+    "bl0",
+    "hu4",
+    "<geom>",
+    "g0",
+    "flat",
+    "flat",
+    "flat",
+    "flat",
+    "gh0",
+    "0",
+    "g1",
+    "flat",
+    "flat",
+    "flat",
+    "flat",
+    "gh1",
+    "0",
+    "g2",
+    "flat",
+    "flat",
+    "flat",
+    "flat",
+    "gh2",
+    "0",
+    "g3",
+    "flat",
+    "flat",
+    "flat",
+    "flat",
+    "gh3",
+    "0",
+    "g4",
+    "flat",
+    "flat",
+    "flat",
+    "flat",
+    "gh4",
+    "0",
+    "g5",
+    "flat",
+    "flat",
+    "flat",
+    "flat",
+    "gh5",
+    "0",
+    "g6",
+    "flat",
+    "flat",
+    "flat",
+    "flat",
+    "gh6",
+    "0",
+    "g7",
+    "flat",
+    "flat",
+    "flat",
+    "flat",
+    "gh7",
+    "0",
+    "<threat>",
+    "tbn",
+    "tdf",
+    "thf",
+    "tt4",
+    "<goal>",
+    "gtidle",
+    "gdn",
+    "gv0",
+    "gcna",
+    "gb8",
+    "<prev>",
+    "pm8",
+    "ps0",
+    "pj0",
+    "pk0",
+    "ph0",
+    "pa0",
+    "pd0"
+   ]
+  },
+  {
+   "name": "hole_ahead",
+   "desc": "前方挖了个洞",
+   "world": {
+    "fill_below": 63,
+    "fill": "stone",
+    "blocks": {
+     "0,63,-1": "air",
+     "0,62,-1": "air"
+    }
+   },
+   "entity": {},
+   "entities": {},
+   "goal": {
+    "type": "idle"
+   },
+   "sense": {
+    "self": {
+     "hp": 20,
+     "food": 20,
+     "oxy": 20,
+     "on_ground": true,
+     "in_water": false,
+     "in_lava": false,
+     "on_fire": false,
+     "sneaking": false,
+     "sprinting": false,
+     "blocking": false,
+     "hurt_ticks": 99
+    },
+    "geom": [
+     {
+      "terr": [
+       "hole",
+       "flat",
+       "flat",
+       "flat"
+      ],
+      "height": -2
+     },
+     {
+      "terr": [
+       "flat",
+       "flat",
+       "flat",
+       "flat"
+      ],
+      "height": 0
+     },
+     {
+      "terr": [
+       "flat",
+       "flat",
+       "flat",
+       "flat"
+      ],
+      "height": 0
+     },
+     {
+      "terr": [
+       "flat",
+       "flat",
+       "flat",
+       "flat"
+      ],
+      "height": 0
+     },
+     {
+      "terr": [
+       "flat",
+       "flat",
+       "flat",
+       "flat"
+      ],
+      "height": 0
+     },
+     {
+      "terr": [
+       "flat",
+       "flat",
+       "flat",
+       "flat"
+      ],
+      "height": 0
+     },
+     {
+      "terr": [
+       "flat",
+       "flat",
+       "flat",
+       "flat"
+      ],
+      "height": 0
+     },
+     {
+      "terr": [
+       "flat",
+       "flat",
+       "flat",
+       "flat"
+      ],
+      "height": 0
+     }
+    ],
+    "threat": {
+     "present": false,
+     "bearing": null,
+     "dist": null,
+     "hpFrac": null,
+     "hurtTicks": 99
+    },
+    "goal": {
+     "type": "idle",
+     "dist": null,
+     "visible": false,
+     "targetClass": null,
+     "bearing": null
+    },
+    "prev": {
+     "move": 8,
+     "sprint": false,
+     "jump": false,
+     "sneak": false,
+     "shield": false,
+     "attack": false,
+     "dig": false
+    }
+   },
+   "obs": [
+    "<self>",
+    "hp6",
+    "fd5",
+    "ox3",
+    "og1",
+    "iw0",
+    "il0",
+    "of0",
+    "sk0",
+    "sp0",
+    "bl0",
+    "hu4",
+    "<geom>",
+    "g0",
+    "hole",
+    "flat",
+    "flat",
+    "flat",
+    "gh0",
+    "-2",
+    "g1",
+    "flat",
+    "flat",
+    "flat",
+    "flat",
+    "gh1",
+    "0",
+    "g2",
+    "flat",
+    "flat",
+    "flat",
+    "flat",
+    "gh2",
+    "0",
+    "g3",
+    "flat",
+    "flat",
+    "flat",
+    "flat",
+    "gh3",
+    "0",
+    "g4",
+    "flat",
+    "flat",
+    "flat",
+    "flat",
+    "gh4",
+    "0",
+    "g5",
+    "flat",
+    "flat",
+    "flat",
+    "flat",
+    "gh5",
+    "0",
+    "g6",
+    "flat",
+    "flat",
+    "flat",
+    "flat",
+    "gh6",
+    "0",
+    "g7",
+    "flat",
+    "flat",
+    "flat",
+    "flat",
+    "gh7",
+    "0",
+    "<threat>",
+    "tbn",
+    "tdf",
+    "thf",
+    "tt4",
+    "<goal>",
+    "gtidle",
+    "gdn",
+    "gv0",
+    "gcna",
+    "gb8",
+    "<prev>",
+    "pm8",
+    "ps0",
+    "pj0",
+    "pk0",
+    "ph0",
+    "pa0",
+    "pd0"
+   ]
+  },
+  {
+   "name": "lava_ahead",
+   "desc": "前方是岩浆",
+   "world": {
+    "fill_below": 63,
+    "fill": "stone",
+    "blocks": {
+     "0,63,-1": "lava"
+    }
+   },
+   "entity": {},
+   "entities": {},
+   "goal": {
+    "type": "idle"
+   },
+   "sense": {
+    "self": {
+     "hp": 20,
+     "food": 20,
+     "oxy": 20,
+     "on_ground": true,
+     "in_water": false,
+     "in_lava": false,
+     "on_fire": false,
+     "sneaking": false,
+     "sprinting": false,
+     "blocking": false,
+     "hurt_ticks": 99
+    },
+    "geom": [
+     {
+      "terr": [
+       "magma",
+       "flat",
+       "flat",
+       "flat"
+      ],
+      "height": -1
+     },
+     {
+      "terr": [
+       "flat",
+       "flat",
+       "flat",
+       "flat"
+      ],
+      "height": 0
+     },
+     {
+      "terr": [
+       "flat",
+       "flat",
+       "flat",
+       "flat"
+      ],
+      "height": 0
+     },
+     {
+      "terr": [
+       "flat",
+       "flat",
+       "flat",
+       "flat"
+      ],
+      "height": 0
+     },
+     {
+      "terr": [
+       "flat",
+       "flat",
+       "flat",
+       "flat"
+      ],
+      "height": 0
+     },
+     {
+      "terr": [
+       "flat",
+       "flat",
+       "flat",
+       "flat"
+      ],
+      "height": 0
+     },
+     {
+      "terr": [
+       "flat",
+       "flat",
+       "flat",
+       "flat"
+      ],
+      "height": 0
+     },
+     {
+      "terr": [
+       "flat",
+       "flat",
+       "flat",
+       "flat"
+      ],
+      "height": 0
+     }
+    ],
+    "threat": {
+     "present": false,
+     "bearing": null,
+     "dist": null,
+     "hpFrac": null,
+     "hurtTicks": 99
+    },
+    "goal": {
+     "type": "idle",
+     "dist": null,
+     "visible": false,
+     "targetClass": null,
+     "bearing": null
+    },
+    "prev": {
+     "move": 8,
+     "sprint": false,
+     "jump": false,
+     "sneak": false,
+     "shield": false,
+     "attack": false,
+     "dig": false
+    }
+   },
+   "obs": [
+    "<self>",
+    "hp6",
+    "fd5",
+    "ox3",
+    "og1",
+    "iw0",
+    "il0",
+    "of0",
+    "sk0",
+    "sp0",
+    "bl0",
+    "hu4",
+    "<geom>",
+    "g0",
+    "magma",
+    "flat",
+    "flat",
+    "flat",
+    "gh0",
+    "-1",
+    "g1",
+    "flat",
+    "flat",
+    "flat",
+    "flat",
+    "gh1",
+    "0",
+    "g2",
+    "flat",
+    "flat",
+    "flat",
+    "flat",
+    "gh2",
+    "0",
+    "g3",
+    "flat",
+    "flat",
+    "flat",
+    "flat",
+    "gh3",
+    "0",
+    "g4",
+    "flat",
+    "flat",
+    "flat",
+    "flat",
+    "gh4",
+    "0",
+    "g5",
+    "flat",
+    "flat",
+    "flat",
+    "flat",
+    "gh5",
+    "0",
+    "g6",
+    "flat",
+    "flat",
+    "flat",
+    "flat",
+    "gh6",
+    "0",
+    "g7",
+    "flat",
+    "flat",
+    "flat",
+    "flat",
+    "gh7",
+    "0",
+    "<threat>",
+    "tbn",
+    "tdf",
+    "thf",
+    "tt4",
+    "<goal>",
+    "gtidle",
+    "gdn",
+    "gv0",
+    "gcna",
+    "gb8",
+    "<prev>",
+    "pm8",
+    "ps0",
+    "pj0",
+    "pk0",
+    "ph0",
+    "pa0",
+    "pd0"
+   ]
+  },
+  {
+   "name": "water_pool",
+   "desc": "前方是水",
+   "world": {
+    "fill_below": 63,
+    "fill": "stone",
+    "blocks": {
+     "0,63,-1": "water"
+    }
+   },
+   "entity": {},
+   "entities": {},
+   "goal": {
+    "type": "idle"
+   },
+   "sense": {
+    "self": {
+     "hp": 20,
+     "food": 20,
+     "oxy": 20,
+     "on_ground": true,
+     "in_water": false,
+     "in_lava": false,
+     "on_fire": false,
+     "sneaking": false,
+     "sprinting": false,
+     "blocking": false,
+     "hurt_ticks": 99
+    },
+    "geom": [
+     {
+      "terr": [
+       "liq",
+       "flat",
+       "flat",
+       "flat"
+      ],
+      "height": -1
+     },
+     {
+      "terr": [
+       "flat",
+       "flat",
+       "flat",
+       "flat"
+      ],
+      "height": 0
+     },
+     {
+      "terr": [
+       "flat",
+       "flat",
+       "flat",
+       "flat"
+      ],
+      "height": 0
+     },
+     {
+      "terr": [
+       "flat",
+       "flat",
+       "flat",
+       "flat"
+      ],
+      "height": 0
+     },
+     {
+      "terr": [
+       "flat",
+       "flat",
+       "flat",
+       "flat"
+      ],
+      "height": 0
+     },
+     {
+      "terr": [
+       "flat",
+       "flat",
+       "flat",
+       "flat"
+      ],
+      "height": 0
+     },
+     {
+      "terr": [
+       "flat",
+       "flat",
+       "flat",
+       "flat"
+      ],
+      "height": 0
+     },
+     {
+      "terr": [
+       "flat",
+       "flat",
+       "flat",
+       "flat"
+      ],
+      "height": 0
+     }
+    ],
+    "threat": {
+     "present": false,
+     "bearing": null,
+     "dist": null,
+     "hpFrac": null,
+     "hurtTicks": 99
+    },
+    "goal": {
+     "type": "idle",
+     "dist": null,
+     "visible": false,
+     "targetClass": null,
+     "bearing": null
+    },
+    "prev": {
+     "move": 8,
+     "sprint": false,
+     "jump": false,
+     "sneak": false,
+     "shield": false,
+     "attack": false,
+     "dig": false
+    }
+   },
+   "obs": [
+    "<self>",
+    "hp6",
+    "fd5",
+    "ox3",
+    "og1",
+    "iw0",
+    "il0",
+    "of0",
+    "sk0",
+    "sp0",
+    "bl0",
+    "hu4",
+    "<geom>",
+    "g0",
+    "liq",
+    "flat",
+    "flat",
+    "flat",
+    "gh0",
+    "-1",
+    "g1",
+    "flat",
+    "flat",
+    "flat",
+    "flat",
+    "gh1",
+    "0",
+    "g2",
+    "flat",
+    "flat",
+    "flat",
+    "flat",
+    "gh2",
+    "0",
+    "g3",
+    "flat",
+    "flat",
+    "flat",
+    "flat",
+    "gh3",
+    "0",
+    "g4",
+    "flat",
+    "flat",
+    "flat",
+    "flat",
+    "gh4",
+    "0",
+    "g5",
+    "flat",
+    "flat",
+    "flat",
+    "flat",
+    "gh5",
+    "0",
+    "g6",
+    "flat",
+    "flat",
+    "flat",
+    "flat",
+    "gh6",
+    "0",
+    "g7",
+    "flat",
+    "flat",
+    "flat",
+    "flat",
+    "gh7",
+    "0",
+    "<threat>",
+    "tbn",
+    "tdf",
+    "thf",
+    "tt4",
+    "<goal>",
+    "gtidle",
+    "gdn",
+    "gv0",
+    "gcna",
+    "gb8",
+    "<prev>",
+    "pm8",
+    "ps0",
+    "pj0",
+    "pk0",
+    "ph0",
+    "pa0",
+    "pd0"
+   ]
+  },
+  {
+   "name": "wall_and_step",
+   "desc": "正前方是墙，右侧有一级台阶",
+   "world": {
+    "fill_below": 63,
+    "fill": "stone",
+    "blocks": {
+     "0,64,-1": "stone",
+     "1,64,-1": "stone"
+    }
+   },
+   "entity": {},
+   "entities": {},
+   "goal": {
+    "type": "idle"
+   },
+   "sense": {
+    "self": {
+     "hp": 20,
+     "food": 20,
+     "oxy": 20,
+     "on_ground": true,
+     "in_water": false,
+     "in_lava": false,
+     "on_fire": false,
+     "sneaking": false,
+     "sprinting": false,
+     "blocking": false,
+     "hurt_ticks": 99
+    },
+    "geom": [
+     {
+      "terr": [
+       "wall",
+       "flat",
+       "flat",
+       "flat"
+      ],
+      "height": 0
+     },
+     {
+      "terr": [
+       "wall",
+       "flat",
+       "flat",
+       "flat"
+      ],
+      "height": 0
+     },
+     {
+      "terr": [
+       "flat",
+       "flat",
+       "flat",
+       "flat"
+      ],
+      "height": 0
+     },
+     {
+      "terr": [
+       "flat",
+       "flat",
+       "flat",
+       "flat"
+      ],
+      "height": 0
+     },
+     {
+      "terr": [
+       "flat",
+       "flat",
+       "flat",
+       "flat"
+      ],
+      "height": 0
+     },
+     {
+      "terr": [
+       "flat",
+       "flat",
+       "flat",
+       "flat"
+      ],
+      "height": 0
+     },
+     {
+      "terr": [
+       "flat",
+       "flat",
+       "flat",
+       "flat"
+      ],
+      "height": 0
+     },
+     {
+      "terr": [
+       "flat",
+       "flat",
+       "flat",
+       "flat"
+      ],
+      "height": 0
+     }
+    ],
+    "threat": {
+     "present": false,
+     "bearing": null,
+     "dist": null,
+     "hpFrac": null,
+     "hurtTicks": 99
+    },
+    "goal": {
+     "type": "idle",
+     "dist": null,
+     "visible": false,
+     "targetClass": null,
+     "bearing": null
+    },
+    "prev": {
+     "move": 8,
+     "sprint": false,
+     "jump": false,
+     "sneak": false,
+     "shield": false,
+     "attack": false,
+     "dig": false
+    }
+   },
+   "obs": [
+    "<self>",
+    "hp6",
+    "fd5",
+    "ox3",
+    "og1",
+    "iw0",
+    "il0",
+    "of0",
+    "sk0",
+    "sp0",
+    "bl0",
+    "hu4",
+    "<geom>",
+    "g0",
+    "wall",
+    "flat",
+    "flat",
+    "flat",
+    "gh0",
+    "0",
+    "g1",
+    "wall",
+    "flat",
+    "flat",
+    "flat",
+    "gh1",
+    "0",
+    "g2",
+    "flat",
+    "flat",
+    "flat",
+    "flat",
+    "gh2",
+    "0",
+    "g3",
+    "flat",
+    "flat",
+    "flat",
+    "flat",
+    "gh3",
+    "0",
+    "g4",
+    "flat",
+    "flat",
+    "flat",
+    "flat",
+    "gh4",
+    "0",
+    "g5",
+    "flat",
+    "flat",
+    "flat",
+    "flat",
+    "gh5",
+    "0",
+    "g6",
+    "flat",
+    "flat",
+    "flat",
+    "flat",
+    "gh6",
+    "0",
+    "g7",
+    "flat",
+    "flat",
+    "flat",
+    "flat",
+    "gh7",
+    "0",
+    "<threat>",
+    "tbn",
+    "tdf",
+    "thf",
+    "tt4",
+    "<goal>",
+    "gtidle",
+    "gdn",
+    "gv0",
+    "gcna",
+    "gb8",
+    "<prev>",
+    "pm8",
+    "ps0",
+    "pj0",
+    "pk0",
+    "ph0",
+    "pa0",
+    "pd0"
+   ]
+  },
+  {
+   "name": "ladder",
+   "desc": "正前方是梯子",
+   "world": {
+    "fill_below": 63,
+    "fill": "stone",
+    "blocks": {
+     "0,64,-1": "ladder"
+    }
+   },
+   "entity": {},
+   "entities": {},
+   "goal": {
+    "type": "idle"
+   },
+   "sense": {
+    "self": {
+     "hp": 20,
+     "food": 20,
+     "oxy": 20,
+     "on_ground": true,
+     "in_water": false,
+     "in_lava": false,
+     "on_fire": false,
+     "sneaking": false,
+     "sprinting": false,
+     "blocking": false,
+     "hurt_ticks": 99
+    },
+    "geom": [
+     {
+      "terr": [
+       "climb",
+       "flat",
+       "flat",
+       "flat"
+      ],
+      "height": 0
+     },
+     {
+      "terr": [
+       "flat",
+       "flat",
+       "flat",
+       "flat"
+      ],
+      "height": 0
+     },
+     {
+      "terr": [
+       "flat",
+       "flat",
+       "flat",
+       "flat"
+      ],
+      "height": 0
+     },
+     {
+      "terr": [
+       "flat",
+       "flat",
+       "flat",
+       "flat"
+      ],
+      "height": 0
+     },
+     {
+      "terr": [
+       "flat",
+       "flat",
+       "flat",
+       "flat"
+      ],
+      "height": 0
+     },
+     {
+      "terr": [
+       "flat",
+       "flat",
+       "flat",
+       "flat"
+      ],
+      "height": 0
+     },
+     {
+      "terr": [
+       "flat",
+       "flat",
+       "flat",
+       "flat"
+      ],
+      "height": 0
+     },
+     {
+      "terr": [
+       "flat",
+       "flat",
+       "flat",
+       "flat"
+      ],
+      "height": 0
+     }
+    ],
+    "threat": {
+     "present": false,
+     "bearing": null,
+     "dist": null,
+     "hpFrac": null,
+     "hurtTicks": 99
+    },
+    "goal": {
+     "type": "idle",
+     "dist": null,
+     "visible": false,
+     "targetClass": null,
+     "bearing": null
+    },
+    "prev": {
+     "move": 8,
+     "sprint": false,
+     "jump": false,
+     "sneak": false,
+     "shield": false,
+     "attack": false,
+     "dig": false
+    }
+   },
+   "obs": [
+    "<self>",
+    "hp6",
+    "fd5",
+    "ox3",
+    "og1",
+    "iw0",
+    "il0",
+    "of0",
+    "sk0",
+    "sp0",
+    "bl0",
+    "hu4",
+    "<geom>",
+    "g0",
+    "climb",
+    "flat",
+    "flat",
+    "flat",
+    "gh0",
+    "0",
+    "g1",
+    "flat",
+    "flat",
+    "flat",
+    "flat",
+    "gh1",
+    "0",
+    "g2",
+    "flat",
+    "flat",
+    "flat",
+    "flat",
+    "gh2",
+    "0",
+    "g3",
+    "flat",
+    "flat",
+    "flat",
+    "flat",
+    "gh3",
+    "0",
+    "g4",
+    "flat",
+    "flat",
+    "flat",
+    "flat",
+    "gh4",
+    "0",
+    "g5",
+    "flat",
+    "flat",
+    "flat",
+    "flat",
+    "gh5",
+    "0",
+    "g6",
+    "flat",
+    "flat",
+    "flat",
+    "flat",
+    "gh6",
+    "0",
+    "g7",
+    "flat",
+    "flat",
+    "flat",
+    "flat",
+    "gh7",
+    "0",
+    "<threat>",
+    "tbn",
+    "tdf",
+    "thf",
+    "tt4",
+    "<goal>",
+    "gtidle",
+    "gdn",
+    "gv0",
+    "gcna",
+    "gb8",
+    "<prev>",
+    "pm8",
+    "ps0",
+    "pj0",
+    "pk0",
+    "ph0",
+    "pa0",
+    "pd0"
+   ]
+  },
+  {
+   "name": "turned_around",
+   "desc": "转身之后几何方向要跟着转",
+   "world": {
+    "fill_below": 63,
+    "fill": "stone",
+    "blocks": {}
+   },
+   "entity": {
+    "yaw": 1.5707963267948966
+   },
+   "entities": {},
+   "goal": {
+    "type": "idle"
+   },
+   "sense": {
+    "self": {
+     "hp": 20,
+     "food": 20,
+     "oxy": 20,
+     "on_ground": true,
+     "in_water": false,
+     "in_lava": false,
+     "on_fire": false,
+     "sneaking": false,
+     "sprinting": false,
+     "blocking": false,
+     "hurt_ticks": 99
+    },
+    "geom": [
+     {
+      "terr": [
+       "flat",
+       "flat",
+       "flat",
+       "flat"
+      ],
+      "height": 0
+     },
+     {
+      "terr": [
+       "flat",
+       "flat",
+       "flat",
+       "flat"
+      ],
+      "height": 0
+     },
+     {
+      "terr": [
+       "flat",
+       "flat",
+       "flat",
+       "flat"
+      ],
+      "height": 0
+     },
+     {
+      "terr": [
+       "flat",
+       "flat",
+       "flat",
+       "flat"
+      ],
+      "height": 0
+     },
+     {
+      "terr": [
+       "flat",
+       "flat",
+       "flat",
+       "flat"
+      ],
+      "height": 0
+     },
+     {
+      "terr": [
+       "flat",
+       "flat",
+       "flat",
+       "flat"
+      ],
+      "height": 0
+     },
+     {
+      "terr": [
+       "flat",
+       "flat",
+       "flat",
+       "flat"
+      ],
+      "height": 0
+     },
+     {
+      "terr": [
+       "flat",
+       "flat",
+       "flat",
+       "flat"
+      ],
+      "height": 0
+     }
+    ],
+    "threat": {
+     "present": false,
+     "bearing": null,
+     "dist": null,
+     "hpFrac": null,
+     "hurtTicks": 99
+    },
+    "goal": {
+     "type": "idle",
+     "dist": null,
+     "visible": false,
+     "targetClass": null,
+     "bearing": null
+    },
+    "prev": {
+     "move": 8,
+     "sprint": false,
+     "jump": false,
+     "sneak": false,
+     "shield": false,
+     "attack": false,
+     "dig": false
+    }
+   },
+   "obs": [
+    "<self>",
+    "hp6",
+    "fd5",
+    "ox3",
+    "og1",
+    "iw0",
+    "il0",
+    "of0",
+    "sk0",
+    "sp0",
+    "bl0",
+    "hu4",
+    "<geom>",
+    "g0",
+    "flat",
+    "flat",
+    "flat",
+    "flat",
+    "gh0",
+    "0",
+    "g1",
+    "flat",
+    "flat",
+    "flat",
+    "flat",
+    "gh1",
+    "0",
+    "g2",
+    "flat",
+    "flat",
+    "flat",
+    "flat",
+    "gh2",
+    "0",
+    "g3",
+    "flat",
+    "flat",
+    "flat",
+    "flat",
+    "gh3",
+    "0",
+    "g4",
+    "flat",
+    "flat",
+    "flat",
+    "flat",
+    "gh4",
+    "0",
+    "g5",
+    "flat",
+    "flat",
+    "flat",
+    "flat",
+    "gh5",
+    "0",
+    "g6",
+    "flat",
+    "flat",
+    "flat",
+    "flat",
+    "gh6",
+    "0",
+    "g7",
+    "flat",
+    "flat",
+    "flat",
+    "flat",
+    "gh7",
+    "0",
+    "<threat>",
+    "tbn",
+    "tdf",
+    "thf",
+    "tt4",
+    "<goal>",
+    "gtidle",
+    "gdn",
+    "gv0",
+    "gcna",
+    "gb8",
+    "<prev>",
+    "pm8",
+    "ps0",
+    "pj0",
+    "pk0",
+    "ph0",
+    "pa0",
+    "pd0"
+   ]
+  },
+  {
+   "name": "hostile_close",
+   "desc": "右前方有敌对实体",
+   "world": {
+    "fill_below": 63,
+    "fill": "stone",
+    "blocks": {}
+   },
+   "entity": {},
+   "entities": {
+    "7": {
+     "id": 7,
+     "type": "hostile",
+     "name": "zombie",
+     "position": {
+      "x": 3,
+      "y": 64,
+      "z": -3
+     },
+     "health": 20,
+     "maxHealth": 20
+    }
+   },
+   "goal": {
+    "type": "idle"
+   },
+   "sense": {
+    "self": {
+     "hp": 20,
+     "food": 20,
+     "oxy": 20,
+     "on_ground": true,
+     "in_water": false,
+     "in_lava": false,
+     "on_fire": false,
+     "sneaking": false,
+     "sprinting": false,
+     "blocking": false,
+     "hurt_ticks": 99
+    },
+    "geom": [
+     {
+      "terr": [
+       "flat",
+       "flat",
+       "flat",
+       "flat"
+      ],
+      "height": 0
+     },
+     {
+      "terr": [
+       "flat",
+       "flat",
+       "flat",
+       "flat"
+      ],
+      "height": 0
+     },
+     {
+      "terr": [
+       "flat",
+       "flat",
+       "flat",
+       "flat"
+      ],
+      "height": 0
+     },
+     {
+      "terr": [
+       "flat",
+       "flat",
+       "flat",
+       "flat"
+      ],
+      "height": 0
+     },
+     {
+      "terr": [
+       "flat",
+       "flat",
+       "flat",
+       "flat"
+      ],
+      "height": 0
+     },
+     {
+      "terr": [
+       "flat",
+       "flat",
+       "flat",
+       "flat"
+      ],
+      "height": 0
+     },
+     {
+      "terr": [
+       "flat",
+       "flat",
+       "flat",
+       "flat"
+      ],
+      "height": 0
+     },
+     {
+      "terr": [
+       "flat",
+       "flat",
+       "flat",
+       "flat"
+      ],
+      "height": 0
+     }
+    ],
+    "threat": {
+     "present": true,
+     "bearing": 1,
+     "dist": 4.242640687119285,
+     "hpFrac": 1,
+     "hurtTicks": 99
+    },
+    "goal": {
+     "type": "idle",
+     "dist": null,
+     "visible": false,
+     "targetClass": null,
+     "bearing": null
+    },
+    "prev": {
+     "move": 8,
+     "sprint": false,
+     "jump": false,
+     "sneak": false,
+     "shield": false,
+     "attack": false,
+     "dig": false
+    }
+   },
+   "obs": [
+    "<self>",
+    "hp6",
+    "fd5",
+    "ox3",
+    "og1",
+    "iw0",
+    "il0",
+    "of0",
+    "sk0",
+    "sp0",
+    "bl0",
+    "hu4",
+    "<geom>",
+    "g0",
+    "flat",
+    "flat",
+    "flat",
+    "flat",
+    "gh0",
+    "0",
+    "g1",
+    "flat",
+    "flat",
+    "flat",
+    "flat",
+    "gh1",
+    "0",
+    "g2",
+    "flat",
+    "flat",
+    "flat",
+    "flat",
+    "gh2",
+    "0",
+    "g3",
+    "flat",
+    "flat",
+    "flat",
+    "flat",
+    "gh3",
+    "0",
+    "g4",
+    "flat",
+    "flat",
+    "flat",
+    "flat",
+    "gh4",
+    "0",
+    "g5",
+    "flat",
+    "flat",
+    "flat",
+    "flat",
+    "gh5",
+    "0",
+    "g6",
+    "flat",
+    "flat",
+    "flat",
+    "flat",
+    "gh6",
+    "0",
+    "g7",
+    "flat",
+    "flat",
+    "flat",
+    "flat",
+    "gh7",
+    "0",
+    "<threat>",
+    "tb1",
+    "td3",
+    "th3",
+    "tt4",
+    "<goal>",
+    "gtidle",
+    "gdn",
+    "gv0",
+    "gcna",
+    "gb8",
+    "<prev>",
+    "pm8",
+    "ps0",
+    "pj0",
+    "pk0",
+    "ph0",
+    "pa0",
+    "pd0"
+   ]
+  },
+  {
+   "name": "in_lava",
+   "desc": "人已经在岩浆里",
+   "world": {
+    "fill_below": 63,
+    "fill": "stone",
+    "blocks": {
+     "0,63,0": "lava"
+    }
+   },
+   "entity": {
+    "isInLava": true
+   },
+   "entities": {},
+   "goal": {
+    "type": "flee"
+   },
+   "sense": {
+    "self": {
+     "hp": 20,
+     "food": 20,
+     "oxy": 20,
+     "on_ground": true,
+     "in_water": false,
+     "in_lava": true,
+     "on_fire": false,
+     "sneaking": false,
+     "sprinting": false,
+     "blocking": false,
+     "hurt_ticks": 99
+    },
+    "geom": [
+     {
+      "terr": [
+       "flat",
+       "flat",
+       "flat",
+       "flat"
+      ],
+      "height": 0
+     },
+     {
+      "terr": [
+       "flat",
+       "flat",
+       "flat",
+       "flat"
+      ],
+      "height": 0
+     },
+     {
+      "terr": [
+       "flat",
+       "flat",
+       "flat",
+       "flat"
+      ],
+      "height": 0
+     },
+     {
+      "terr": [
+       "flat",
+       "flat",
+       "flat",
+       "flat"
+      ],
+      "height": 0
+     },
+     {
+      "terr": [
+       "flat",
+       "flat",
+       "flat",
+       "flat"
+      ],
+      "height": 0
+     },
+     {
+      "terr": [
+       "flat",
+       "flat",
+       "flat",
+       "flat"
+      ],
+      "height": 0
+     },
+     {
+      "terr": [
+       "flat",
+       "flat",
+       "flat",
+       "flat"
+      ],
+      "height": 0
+     },
+     {
+      "terr": [
+       "flat",
+       "flat",
+       "flat",
+       "flat"
+      ],
+      "height": 0
+     }
+    ],
+    "threat": {
+     "present": false,
+     "bearing": null,
+     "dist": null,
+     "hpFrac": null,
+     "hurtTicks": 99
+    },
+    "goal": {
+     "type": "flee",
+     "dist": null,
+     "visible": false,
+     "targetClass": null,
+     "bearing": null
+    },
+    "prev": {
+     "move": 8,
+     "sprint": false,
+     "jump": false,
+     "sneak": false,
+     "shield": false,
+     "attack": false,
+     "dig": false
+    }
+   },
+   "obs": [
+    "<self>",
+    "hp6",
+    "fd5",
+    "ox3",
+    "og1",
+    "iw0",
+    "il1",
+    "of0",
+    "sk0",
+    "sp0",
+    "bl0",
+    "hu4",
+    "<geom>",
+    "g0",
+    "flat",
+    "flat",
+    "flat",
+    "flat",
+    "gh0",
+    "0",
+    "g1",
+    "flat",
+    "flat",
+    "flat",
+    "flat",
+    "gh1",
+    "0",
+    "g2",
+    "flat",
+    "flat",
+    "flat",
+    "flat",
+    "gh2",
+    "0",
+    "g3",
+    "flat",
+    "flat",
+    "flat",
+    "flat",
+    "gh3",
+    "0",
+    "g4",
+    "flat",
+    "flat",
+    "flat",
+    "flat",
+    "gh4",
+    "0",
+    "g5",
+    "flat",
+    "flat",
+    "flat",
+    "flat",
+    "gh5",
+    "0",
+    "g6",
+    "flat",
+    "flat",
+    "flat",
+    "flat",
+    "gh6",
+    "0",
+    "g7",
+    "flat",
+    "flat",
+    "flat",
+    "flat",
+    "gh7",
+    "0",
+    "<threat>",
+    "tbn",
+    "tdf",
+    "thf",
+    "tt4",
+    "<goal>",
+    "gtflee",
+    "gdn",
+    "gv0",
+    "gcna",
+    "gb8",
+    "<prev>",
+    "pm8",
+    "ps0",
+    "pj0",
+    "pk0",
+    "ph0",
+    "pa0",
+    "pd0"
+   ]
+  },
+  {
+   "name": "underwater",
+   "desc": "在水里，氧气快没了",
+   "world": {
+    "fill_below": 63,
+    "fill": "stone",
+    "blocks": {
+     "0,63,0": "water",
+     "0,64,0": "water"
+    }
+   },
+   "entity": {
+    "isInWater": true,
+    "oxygenLevel": 4,
+    "position": {
+     "x": 0,
+     "y": 63.5,
+     "z": 0
+    }
+   },
+   "entities": {},
+   "goal": {
+    "type": "idle"
+   },
+   "sense": {
+    "self": {
+     "hp": 20,
+     "food": 20,
+     "oxy": 4,
+     "on_ground": true,
+     "in_water": true,
+     "in_lava": false,
+     "on_fire": false,
+     "sneaking": false,
+     "sprinting": false,
+     "blocking": false,
+     "hurt_ticks": 99
+    },
+    "geom": [
+     {
+      "terr": [
+       "wall",
+       "wall",
+       "wall",
+       "wall"
+      ],
+      "height": null
+     },
+     {
+      "terr": [
+       "wall",
+       "wall",
+       "wall",
+       "wall"
+      ],
+      "height": null
+     },
+     {
+      "terr": [
+       "wall",
+       "wall",
+       "wall",
+       "wall"
+      ],
+      "height": null
+     },
+     {
+      "terr": [
+       "wall",
+       "wall",
+       "wall",
+       "wall"
+      ],
+      "height": null
+     },
+     {
+      "terr": [
+       "wall",
+       "wall",
+       "wall",
+       "wall"
+      ],
+      "height": null
+     },
+     {
+      "terr": [
+       "wall",
+       "wall",
+       "wall",
+       "wall"
+      ],
+      "height": null
+     },
+     {
+      "terr": [
+       "wall",
+       "wall",
+       "wall",
+       "wall"
+      ],
+      "height": null
+     },
+     {
+      "terr": [
+       "wall",
+       "wall",
+       "wall",
+       "wall"
+      ],
+      "height": null
+     }
+    ],
+    "threat": {
+     "present": false,
+     "bearing": null,
+     "dist": null,
+     "hpFrac": null,
+     "hurtTicks": 99
+    },
+    "goal": {
+     "type": "idle",
+     "dist": null,
+     "visible": false,
+     "targetClass": null,
+     "bearing": null
+    },
+    "prev": {
+     "move": 8,
+     "sprint": false,
+     "jump": false,
+     "sneak": false,
+     "shield": false,
+     "attack": false,
+     "dig": false
+    }
+   },
+   "obs": [
+    "<self>",
+    "hp6",
+    "fd5",
+    "ox1",
+    "og1",
+    "iw1",
+    "il0",
+    "of0",
+    "sk0",
+    "sp0",
+    "bl0",
+    "hu4",
+    "<geom>",
+    "g0",
+    "wall",
+    "wall",
+    "wall",
+    "wall",
+    "gh0",
+    "open",
+    "g1",
+    "wall",
+    "wall",
+    "wall",
+    "wall",
+    "gh1",
+    "open",
+    "g2",
+    "wall",
+    "wall",
+    "wall",
+    "wall",
+    "gh2",
+    "open",
+    "g3",
+    "wall",
+    "wall",
+    "wall",
+    "wall",
+    "gh3",
+    "open",
+    "g4",
+    "wall",
+    "wall",
+    "wall",
+    "wall",
+    "gh4",
+    "open",
+    "g5",
+    "wall",
+    "wall",
+    "wall",
+    "wall",
+    "gh5",
+    "open",
+    "g6",
+    "wall",
+    "wall",
+    "wall",
+    "wall",
+    "gh6",
+    "open",
+    "g7",
+    "wall",
+    "wall",
+    "wall",
+    "wall",
+    "gh7",
+    "open",
+    "<threat>",
+    "tbn",
+    "tdf",
+    "thf",
+    "tt4",
+    "<goal>",
+    "gtidle",
+    "gdn",
+    "gv0",
+    "gcna",
+    "gb8",
+    "<prev>",
+    "pm8",
+    "ps0",
+    "pj0",
+    "pk0",
+    "ph0",
+    "pa0",
+    "pd0"
+   ]
+  },
+  {
+   "name": "goal_goto",
+   "desc": "有 goto 目标",
+   "world": {
+    "fill_below": 63,
+    "fill": "stone",
+    "blocks": {}
+   },
+   "entity": {},
+   "entities": {},
+   "goal": {
+    "type": "goto",
+    "target": {
+     "pos": {
+      "x": 0,
+      "y": 64,
+      "z": -10
+     }
+    }
+   },
+   "sense": {
+    "self": {
+     "hp": 20,
+     "food": 20,
+     "oxy": 20,
+     "on_ground": true,
+     "in_water": false,
+     "in_lava": false,
+     "on_fire": false,
+     "sneaking": false,
+     "sprinting": false,
+     "blocking": false,
+     "hurt_ticks": 99
+    },
+    "geom": [
+     {
+      "terr": [
+       "flat",
+       "flat",
+       "flat",
+       "flat"
+      ],
+      "height": 0
+     },
+     {
+      "terr": [
+       "flat",
+       "flat",
+       "flat",
+       "flat"
+      ],
+      "height": 0
+     },
+     {
+      "terr": [
+       "flat",
+       "flat",
+       "flat",
+       "flat"
+      ],
+      "height": 0
+     },
+     {
+      "terr": [
+       "flat",
+       "flat",
+       "flat",
+       "flat"
+      ],
+      "height": 0
+     },
+     {
+      "terr": [
+       "flat",
+       "flat",
+       "flat",
+       "flat"
+      ],
+      "height": 0
+     },
+     {
+      "terr": [
+       "flat",
+       "flat",
+       "flat",
+       "flat"
+      ],
+      "height": 0
+     },
+     {
+      "terr": [
+       "flat",
+       "flat",
+       "flat",
+       "flat"
+      ],
+      "height": 0
+     },
+     {
+      "terr": [
+       "flat",
+       "flat",
+       "flat",
+       "flat"
+      ],
+      "height": 0
+     }
+    ],
+    "threat": {
+     "present": false,
+     "bearing": null,
+     "dist": null,
+     "hpFrac": null,
+     "hurtTicks": 99
+    },
+    "goal": {
+     "type": "goto",
+     "dist": 10,
+     "visible": true,
+     "targetClass": "flat",
+     "bearing": 0
+    },
+    "prev": {
+     "move": 8,
+     "sprint": false,
+     "jump": false,
+     "sneak": false,
+     "shield": false,
+     "attack": false,
+     "dig": false
+    }
+   },
+   "obs": [
+    "<self>",
+    "hp6",
+    "fd5",
+    "ox3",
+    "og1",
+    "iw0",
+    "il0",
+    "of0",
+    "sk0",
+    "sp0",
+    "bl0",
+    "hu4",
+    "<geom>",
+    "g0",
+    "flat",
+    "flat",
+    "flat",
+    "flat",
+    "gh0",
+    "0",
+    "g1",
+    "flat",
+    "flat",
+    "flat",
+    "flat",
+    "gh1",
+    "0",
+    "g2",
+    "flat",
+    "flat",
+    "flat",
+    "flat",
+    "gh2",
+    "0",
+    "g3",
+    "flat",
+    "flat",
+    "flat",
+    "flat",
+    "gh3",
+    "0",
+    "g4",
+    "flat",
+    "flat",
+    "flat",
+    "flat",
+    "gh4",
+    "0",
+    "g5",
+    "flat",
+    "flat",
+    "flat",
+    "flat",
+    "gh5",
+    "0",
+    "g6",
+    "flat",
+    "flat",
+    "flat",
+    "flat",
+    "gh6",
+    "0",
+    "g7",
+    "flat",
+    "flat",
+    "flat",
+    "flat",
+    "gh7",
+    "0",
+    "<threat>",
+    "tbn",
+    "tdf",
+    "thf",
+    "tt4",
+    "<goal>",
+    "gtgoto",
+    "gd4",
+    "gv1",
+    "gcflat",
+    "gb0",
+    "<prev>",
+    "pm8",
+    "ps0",
+    "pj0",
+    "pk0",
+    "ph0",
+    "pa0",
+    "pd0"
+   ]
+  },
+  {
+   "name": "goal_mine_block",
+   "desc": "有挖矿目标（目标方块是石头）",
+   "world": {
+    "fill_below": 63,
+    "fill": "stone",
+    "blocks": {}
+   },
+   "entity": {},
+   "entities": {},
+   "goal": {
+    "type": "mine",
+    "target": {
+     "pos": {
+      "x": 2,
+      "y": 63,
+      "z": -2
+     },
+     "blockName": "stone"
+    }
+   },
+   "sense": {
+    "self": {
+     "hp": 20,
+     "food": 20,
+     "oxy": 20,
+     "on_ground": true,
+     "in_water": false,
+     "in_lava": false,
+     "on_fire": false,
+     "sneaking": false,
+     "sprinting": false,
+     "blocking": false,
+     "hurt_ticks": 99
+    },
+    "geom": [
+     {
+      "terr": [
+       "flat",
+       "flat",
+       "flat",
+       "flat"
+      ],
+      "height": 0
+     },
+     {
+      "terr": [
+       "flat",
+       "flat",
+       "flat",
+       "flat"
+      ],
+      "height": 0
+     },
+     {
+      "terr": [
+       "flat",
+       "flat",
+       "flat",
+       "flat"
+      ],
+      "height": 0
+     },
+     {
+      "terr": [
+       "flat",
+       "flat",
+       "flat",
+       "flat"
+      ],
+      "height": 0
+     },
+     {
+      "terr": [
+       "flat",
+       "flat",
+       "flat",
+       "flat"
+      ],
+      "height": 0
+     },
+     {
+      "terr": [
+       "flat",
+       "flat",
+       "flat",
+       "flat"
+      ],
+      "height": 0
+     },
+     {
+      "terr": [
+       "flat",
+       "flat",
+       "flat",
+       "flat"
+      ],
+      "height": 0
+     },
+     {
+      "terr": [
+       "flat",
+       "flat",
+       "flat",
+       "flat"
+      ],
+      "height": 0
+     }
+    ],
+    "threat": {
+     "present": false,
+     "bearing": null,
+     "dist": null,
+     "hpFrac": null,
+     "hurtTicks": 99
+    },
+    "goal": {
+     "type": "mine",
+     "dist": 3,
+     "visible": true,
+     "targetClass": "wall",
+     "bearing": 1
+    },
+    "prev": {
+     "move": 8,
+     "sprint": false,
+     "jump": false,
+     "sneak": false,
+     "shield": false,
+     "attack": false,
+     "dig": false
+    }
+   },
+   "obs": [
+    "<self>",
+    "hp6",
+    "fd5",
+    "ox3",
+    "og1",
+    "iw0",
+    "il0",
+    "of0",
+    "sk0",
+    "sp0",
+    "bl0",
+    "hu4",
+    "<geom>",
+    "g0",
+    "flat",
+    "flat",
+    "flat",
+    "flat",
+    "gh0",
+    "0",
+    "g1",
+    "flat",
+    "flat",
+    "flat",
+    "flat",
+    "gh1",
+    "0",
+    "g2",
+    "flat",
+    "flat",
+    "flat",
+    "flat",
+    "gh2",
+    "0",
+    "g3",
+    "flat",
+    "flat",
+    "flat",
+    "flat",
+    "gh3",
+    "0",
+    "g4",
+    "flat",
+    "flat",
+    "flat",
+    "flat",
+    "gh4",
+    "0",
+    "g5",
+    "flat",
+    "flat",
+    "flat",
+    "flat",
+    "gh5",
+    "0",
+    "g6",
+    "flat",
+    "flat",
+    "flat",
+    "flat",
+    "gh6",
+    "0",
+    "g7",
+    "flat",
+    "flat",
+    "flat",
+    "flat",
+    "gh7",
+    "0",
+    "<threat>",
+    "tbn",
+    "tdf",
+    "thf",
+    "tt4",
+    "<goal>",
+    "gtmine",
+    "gd2",
+    "gv1",
+    "gcwall",
+    "gb1",
+    "<prev>",
+    "pm8",
+    "ps0",
+    "pj0",
+    "pk0",
+    "ph0",
+    "pa0",
+    "pd0"
+   ]
+  },
+  {
+   "name": "low_health",
+   "desc": "残血 + 远处有敌对实体",
+   "world": {
+    "fill_below": 63,
+    "fill": "stone",
+    "blocks": {}
+   },
+   "entity": {
+    "health": 4
+   },
+   "entities": {
+    "9": {
+     "id": 9,
+     "type": "hostile",
+     "name": "creeper",
+     "position": {
+      "x": -6,
+      "y": 64,
+      "z": 6
+     },
+     "health": 20,
+     "maxHealth": 20
+    }
+   },
+   "goal": {
+    "type": "idle"
+   },
+   "sense": {
+    "self": {
+     "hp": 4,
+     "food": 20,
+     "oxy": 20,
+     "on_ground": true,
+     "in_water": false,
+     "in_lava": false,
+     "on_fire": false,
+     "sneaking": false,
+     "sprinting": false,
+     "blocking": false,
+     "hurt_ticks": 99
+    },
+    "geom": [
+     {
+      "terr": [
+       "flat",
+       "flat",
+       "flat",
+       "flat"
+      ],
+      "height": 0
+     },
+     {
+      "terr": [
+       "flat",
+       "flat",
+       "flat",
+       "flat"
+      ],
+      "height": 0
+     },
+     {
+      "terr": [
+       "flat",
+       "flat",
+       "flat",
+       "flat"
+      ],
+      "height": 0
+     },
+     {
+      "terr": [
+       "flat",
+       "flat",
+       "flat",
+       "flat"
+      ],
+      "height": 0
+     },
+     {
+      "terr": [
+       "flat",
+       "flat",
+       "flat",
+       "flat"
+      ],
+      "height": 0
+     },
+     {
+      "terr": [
+       "flat",
+       "flat",
+       "flat",
+       "flat"
+      ],
+      "height": 0
+     },
+     {
+      "terr": [
+       "flat",
+       "flat",
+       "flat",
+       "flat"
+      ],
+      "height": 0
+     },
+     {
+      "terr": [
+       "flat",
+       "flat",
+       "flat",
+       "flat"
+      ],
+      "height": 0
+     }
+    ],
+    "threat": {
+     "present": true,
+     "bearing": 5,
+     "dist": 8.48528137423857,
+     "hpFrac": 1,
+     "hurtTicks": 99
+    },
+    "goal": {
+     "type": "idle",
+     "dist": null,
+     "visible": false,
+     "targetClass": null,
+     "bearing": null
+    },
+    "prev": {
+     "move": 8,
+     "sprint": false,
+     "jump": false,
+     "sneak": false,
+     "shield": false,
+     "attack": false,
+     "dig": false
+    }
+   },
+   "obs": [
+    "<self>",
+    "hp1",
+    "fd5",
+    "ox3",
+    "og1",
+    "iw0",
+    "il0",
+    "of0",
+    "sk0",
+    "sp0",
+    "bl0",
+    "hu4",
+    "<geom>",
+    "g0",
+    "flat",
+    "flat",
+    "flat",
+    "flat",
+    "gh0",
+    "0",
+    "g1",
+    "flat",
+    "flat",
+    "flat",
+    "flat",
+    "gh1",
+    "0",
+    "g2",
+    "flat",
+    "flat",
+    "flat",
+    "flat",
+    "gh2",
+    "0",
+    "g3",
+    "flat",
+    "flat",
+    "flat",
+    "flat",
+    "gh3",
+    "0",
+    "g4",
+    "flat",
+    "flat",
+    "flat",
+    "flat",
+    "gh4",
+    "0",
+    "g5",
+    "flat",
+    "flat",
+    "flat",
+    "flat",
+    "gh5",
+    "0",
+    "g6",
+    "flat",
+    "flat",
+    "flat",
+    "flat",
+    "gh6",
+    "0",
+    "g7",
+    "flat",
+    "flat",
+    "flat",
+    "flat",
+    "gh7",
+    "0",
+    "<threat>",
+    "tb5",
+    "td4",
+    "th3",
+    "tt4",
+    "<goal>",
+    "gtidle",
+    "gdn",
+    "gv0",
+    "gcna",
+    "gb8",
+    "<prev>",
+    "pm8",
+    "ps0",
+    "pj0",
+    "pk0",
+    "ph0",
+    "pa0",
+    "pd0"
+   ]
+  },
+  {
+   "name": "flee_hostile",
+   "desc": "逃离时用最近威胁的位置填目标条件",
+   "world": {
+    "fill_below": 63,
+    "fill": "stone",
+    "blocks": {}
+   },
+   "entity": {
+    "isOnFire": true,
+    "isSneaking": true
+   },
+   "entities": {
+    "7": {
+     "id": 7,
+     "type": "hostile",
+     "name": "zombie",
+     "position": {
+      "x": 3,
+      "y": 64,
+      "z": -3
+     }
+    }
+   },
+   "goal": {
+    "type": "flee",
+    "target": null
+   },
+   "sense": {
+    "self": {
+     "hp": 20,
+     "food": 20,
+     "oxy": 20,
+     "on_ground": true,
+     "in_water": false,
+     "in_lava": false,
+     "on_fire": true,
+     "sneaking": true,
+     "sprinting": false,
+     "blocking": false,
+     "hurt_ticks": 99
+    },
+    "geom": [
+     {
+      "terr": [
+       "flat",
+       "flat",
+       "flat",
+       "flat"
+      ],
+      "height": 0
+     },
+     {
+      "terr": [
+       "flat",
+       "flat",
+       "flat",
+       "flat"
+      ],
+      "height": 0
+     },
+     {
+      "terr": [
+       "flat",
+       "flat",
+       "flat",
+       "flat"
+      ],
+      "height": 0
+     },
+     {
+      "terr": [
+       "flat",
+       "flat",
+       "flat",
+       "flat"
+      ],
+      "height": 0
+     },
+     {
+      "terr": [
+       "flat",
+       "flat",
+       "flat",
+       "flat"
+      ],
+      "height": 0
+     },
+     {
+      "terr": [
+       "flat",
+       "flat",
+       "flat",
+       "flat"
+      ],
+      "height": 0
+     },
+     {
+      "terr": [
+       "flat",
+       "flat",
+       "flat",
+       "flat"
+      ],
+      "height": 0
+     },
+     {
+      "terr": [
+       "flat",
+       "flat",
+       "flat",
+       "flat"
+      ],
+      "height": 0
+     }
+    ],
+    "threat": {
+     "present": true,
+     "bearing": 1,
+     "dist": 4.242640687119285,
+     "hpFrac": null,
+     "hurtTicks": 99
+    },
+    "goal": {
+     "type": "flee",
+     "dist": 4.242640687119285,
+     "visible": true,
+     "targetClass": null,
+     "bearing": 1
+    },
+    "prev": {
+     "move": 8,
+     "sprint": false,
+     "jump": false,
+     "sneak": false,
+     "shield": false,
+     "attack": false,
+     "dig": false
+    }
+   },
+   "obs": [
+    "<self>",
+    "hp6",
+    "fd5",
+    "ox3",
+    "og1",
+    "iw0",
+    "il0",
+    "of1",
+    "sk1",
+    "sp0",
+    "bl0",
+    "hu4",
+    "<geom>",
+    "g0",
+    "flat",
+    "flat",
+    "flat",
+    "flat",
+    "gh0",
+    "0",
+    "g1",
+    "flat",
+    "flat",
+    "flat",
+    "flat",
+    "gh1",
+    "0",
+    "g2",
+    "flat",
+    "flat",
+    "flat",
+    "flat",
+    "gh2",
+    "0",
+    "g3",
+    "flat",
+    "flat",
+    "flat",
+    "flat",
+    "gh3",
+    "0",
+    "g4",
+    "flat",
+    "flat",
+    "flat",
+    "flat",
+    "gh4",
+    "0",
+    "g5",
+    "flat",
+    "flat",
+    "flat",
+    "flat",
+    "gh5",
+    "0",
+    "g6",
+    "flat",
+    "flat",
+    "flat",
+    "flat",
+    "gh6",
+    "0",
+    "g7",
+    "flat",
+    "flat",
+    "flat",
+    "flat",
+    "gh7",
+    "0",
+    "<threat>",
+    "tb1",
+    "td3",
+    "th3",
+    "tt4",
+    "<goal>",
+    "gtflee",
+    "gd3",
+    "gv1",
+    "gcna",
+    "gb1",
+    "<prev>",
+    "pm8",
+    "ps0",
+    "pj0",
+    "pk0",
+    "ph0",
+    "pa0",
+    "pd0"
+   ]
+  }
+ ]
+}

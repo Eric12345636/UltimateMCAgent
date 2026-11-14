@@ -1,0 +1,24 @@
+{
+  "http": { "host": "127.0.0.1", "port": 18900 },
+  "minecraft": { "host": "127.0.0.1", "port": 25565, "version": "1.21.11" },
+  "auth": { "type": "offline", "password": "change-me" },
+  "readiness": { "type": "direct" },
+  "coe": {
+    "enabled": true,
+    "policy": "rule",
+    "modelPath": null,
+    "vocabPath": null,
+    "queueSize": 4,
+    "llm": {
+      "enabled": true,
+      "endpoint": "http://127.0.0.1:11434",
+      "model": "qwen2.5-mc:7b",
+      "keepAlive": "30m",
+      "timeoutMs": 20000,
+      "temperature": 0.1,
+      "maxTokens": 400,
+      "maxSkills": 4,
+      "systemPrompt": null
+    }
+  }
+}

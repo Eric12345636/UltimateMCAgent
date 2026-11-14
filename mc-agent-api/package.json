@@ -1,0 +1,27 @@
+{
+  "name": "mc-agent-api",
+  "version": "1.4.3",
+  "description": "HTTP API that lets AI agents play Minecraft Java Edition through mineflayer bots (one isolated bot per login).",
+  "main": "src/index.js",
+  "bin": { "mc-agent-api": "src/index.js" },
+  "scripts": {
+    "start": "node src/index.js config.json",
+    "compete": "node src/competition/index.js",
+    "check": "node -e \"for (const f of require('fs').readdirSync('src', { recursive: true })) if (f.endsWith('.js')) require('child_process').execFileSync(process.execPath, ['--check', 'src/' + f])\"",
+    "test": "node --test test/coe.test.js test/competition.test.js",
+    "build:local-vocab": "node src/coe/build-vocab.js"
+  },
+  "engines": { "node": ">=22" },
+  "dependencies": {
+    "mineflayer": "4.39.0",
+    "mineflayer-pathfinder": "2.4.5",
+    "minecraft-data": "3.117.0",
+    "vec3": "0.1.10"
+  },
+  "optionalDependencies": {
+    "onnxruntime-node": "1.21.1"
+  },
+  "keywords": ["minecraft", "mineflayer", "bot", "agent", "llm", "http-api"],
+  "license": "MIT",
+  "repository": { "type": "git", "url": "https://github.com/Zyzzyva0381/mc-agent-api.git" }
+}

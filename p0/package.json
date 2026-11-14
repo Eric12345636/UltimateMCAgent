@@ -1,0 +1,15 @@
+{
+  "name": "mc-agent-p0",
+  "version": "0.1.0",
+  "private": true,
+  "description": "P0 状态层：把 mc-agent-api 的原始响应压成紧凑 token，并把动作参数编成候选指针（可双向还原）",
+  "type": "commonjs",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "node --test",
+    "demo": "node tools/demo.js",
+    "build:vocab": "node tools/build-vocab.js"
+  },
+  "engines": { "node": ">=20" },
+  "license": "MIT"
+}

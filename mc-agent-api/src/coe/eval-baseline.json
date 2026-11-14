@@ -1,0 +1,130 @@
+{
+  "saved_at": "2026-11-13T06:11:42.876Z",
+  "model": "qwen2.5:7b",
+  "summary": {
+    "total": 12,
+    "passed": 10,
+    "failed": 2,
+    "pass_rate": 0.8333333333333334,
+    "failing_rules": [
+      {
+        "rule": "prefer_any",
+        "count": 1
+      },
+      {
+        "rule": "has_skill",
+        "count": 1
+      }
+    ]
+  },
+  "results": [
+    {
+      "name": "plain_collect",
+      "pass": false,
+      "skills": [
+        "attack"
+      ],
+      "failed": [
+        "prefer_any"
+      ]
+    },
+    {
+      "name": "zombie_point_blank",
+      "pass": true,
+      "skills": [
+        "flee",
+        "attack"
+      ],
+      "failed": []
+    },
+    {
+      "name": "zombie_alert",
+      "pass": true,
+      "skills": [
+        "attack",
+        "gather"
+      ],
+      "failed": []
+    },
+    {
+      "name": "cave_coal",
+      "pass": true,
+      "skills": [
+        "attack",
+        "gather"
+      ],
+      "failed": []
+    },
+    {
+      "name": "hungry_low_hp",
+      "pass": true,
+      "skills": [
+        "eat",
+        "gather"
+      ],
+      "failed": []
+    },
+    {
+      "name": "no_resources",
+      "pass": false,
+      "skills": [],
+      "failed": [
+        "has_skill"
+      ]
+    },
+    {
+      "name": "creeper_very_close",
+      "pass": true,
+      "skills": [
+        "flee",
+        "attack"
+      ],
+      "failed": []
+    },
+    {
+      "name": "night_outside",
+      "pass": true,
+      "skills": [
+        "flee",
+        "attack"
+      ],
+      "failed": []
+    },
+    {
+      "name": "workbench_ready",
+      "pass": true,
+      "skills": [
+        "gather",
+        "craft"
+      ],
+      "failed": []
+    },
+    {
+      "name": "underwater_low_air",
+      "pass": true,
+      "skills": [
+        "gather",
+        "craft"
+      ],
+      "failed": []
+    },
+    {
+      "name": "skeleton_just_out_of_range",
+      "pass": true,
+      "skills": [
+        "gather",
+        "craft"
+      ],
+      "failed": []
+    },
+    {
+      "name": "lots_of_drops",
+      "pass": true,
+      "skills": [
+        "attack",
+        "eat"
+      ],
+      "failed": []
+    }
+  ]
+}
