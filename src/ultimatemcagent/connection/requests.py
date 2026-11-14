@@ -7,7 +7,7 @@ import aiodns
 from ..ext_file_ops import load_json_from_file
 LOGIN_DATA = load_json_from_file('login.json')
 
-BASE_URL = r'https://mc-api.windywindie.top/api/v1/'
+BASE_URL = r'http://127.0.0.1:18900/api/v1/'
 class HttpRequestHandler:
     _instance = None
     _initialized = False

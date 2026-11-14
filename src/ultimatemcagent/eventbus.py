@@ -7,48 +7,11 @@ from typing import Callable,Any,Literal
 from typing_extensions import Self
 from threading import Event,Lock
 import traceback
+from ultimatemcagent.objects.base import Waypoint
 DEBUG = False
 # 定义所有可能的事件名
 EventName = Literal[
-    "control.start",
-    "control.exit",
-    "control.terminate",
-    "client.start",
-    "client.llm.enable",
-    "client.llm.disable",
-    "client.stream.start",
-    "client.stream.streamevent",
-    "client.stream.end",
-    "client.addmessage",
-    "client.create",
-    "history.instruction.load",
-    "streameventhandler.functioncall.submit",
-    "streameventhandler.functioncall.alldone",
-    "streameventhandler.error",
-    "toolcall.result",
-    "toolcall.mcpservers.set",
-    "history.init",
-    "history.add",
-    "history.remove",
-    "history.archive",
-    "history.dump",
-    "history.save",
-    "history.loadall",
-    "history.print",
-    "history.printdump",
-    "history.compaction.load",
-    "console.print.start",
-    "console.print.continue",
-    "console.print.continue_reasoning",
-    "console.print.end",
-    "eventmanager.start",
-    "eventmanager.websocket.reload",
-    "eventmanager.websocket.stop",
-    "eventmanager.websocket.printstate",
-    "command.run",
-    "command.commands.run",
-
-    "message.receive"
+    "decisions.make"
 ]
 @dataclass
 class Endpoint:
@@ -170,37 +133,7 @@ class EventBus:
     
     class _Shared:
         def __init__(self) -> None:
-            self.client = self._Client()
-            self.tool_call_manager = self._ToolcallManager()
-            self.state_manager = self._StateManager()
-        class _Client:
+            self.game = self._Game()
+        class _Game:
             def __init__(self) -> None:
-                self.enabled = False
-                self.history = []
-                self.history_from_file = []
-                self.history_archived = []
-                self.dump = []
-                self.instruction = ''
-                self.compaction = ''
-                self.total_input_tokens = 0
-                self.total_output_tokens = 0
-                self.started_time = ''
-        class _ToolcallManager:
-            def __init__(self) -> None:
-                self.get_tool_names: Callable | None = None
-                self.get_tools_list: Callable | None = None
-        class _StateManager:
-            def __init__(self) -> None:
-                self.state = EventBus.STATE.USERSTATE
-    class STATE(Enum):
-        LOADING = -4
-        USERSTATE = -3
-        UNKNOWN = -2
-        ERROR = -1
-        WAITING = 0
-        REASONING = 1
-        OUTPUTTING = 2
-        FUNCTIONCALLING = 3
-        WEBSEARCHING = 4
-        FUNCTIONEXECUTING = 5
-        TEST = 100
+                self.waypoints: list[Waypoint] = []
