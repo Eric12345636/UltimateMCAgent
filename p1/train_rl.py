@@ -14,6 +14,7 @@
 
 跑法：
     python train_rl.py --episodes 2000 --out runs/rl
+    python train_rl.py --episodes 2000 --out runs/rl --device cuda
 """
 
 from __future__ import annotations
@@ -37,22 +38,38 @@ from envs.mc_lite import MCEnv  # noqa: E402
 BIN_NAMES = ["sprint", "jump", "sneak", "shield", "attack", "use", "dig"]
 
 
+def _as_int(x) -> int:
+    """把 0-dim / 单元素 tensor（可能在 GPU 上）安全转成 python int。"""
+    return int(x.item()) if torch.is_tensor(x) else int(x)
+
+
 def action_to_env(action) -> dict:
     """把网络输出翻译成环境动作（单条样本，batch 维取 0）。"""
     b = action["bin"]
     if b.dim() > 1:
         b = b[0]
+    b = b.detach().cpu()
+
+    move = action["move"]
+    move = move[0] if move.dim() > 0 else move
+
+    yaw = action["yaw"]
+    yaw = yaw[0] if yaw.dim() > 0 else yaw
+
+    pitch = action["pitch"]
+    pitch = pitch[0] if pitch.dim() > 0 else pitch
+
     return {
-        "move": int(action["move"][0]) if action["move"].dim() > 0 else int(action["move"]),
-        "sprint": bool(b[0]),
-        "jump": bool(b[1]),
-        "sneak": bool(b[2]),
-        "shield": bool(b[3]),
-        "attack": bool(b[4]),
-        "use": bool(b[5]),
-        "dig": bool(b[6]),
-        "yaw_delta": yaw_from_bin(int(action["yaw"][0]) if action["yaw"].dim() > 0 else int(action["yaw"])),
-        "pitch_delta": pitch_from_bin(int(action["pitch"][0]) if action["pitch"].dim() > 0 else int(action["pitch"])),
+        "move": _as_int(move),
+        "sprint": bool(b[0].item()),
+        "jump": bool(b[1].item()),
+        "sneak": bool(b[2].item()),
+        "shield": bool(b[3].item()),
+        "attack": bool(b[4].item()),
+        "use": bool(b[5].item()),
+        "dig": bool(b[6].item()),
+        "yaw_delta": yaw_from_bin(_as_int(yaw)),
+        "pitch_delta": pitch_from_bin(_as_int(pitch)),
     }
 
 
@@ -68,19 +85,31 @@ def main():
     ap.add_argument("--goal", default="flee", choices=["flee", "goto"])
     ap.add_argument("--env-horizon", type=int, default=200)
     ap.add_argument("--minibatch", type=int, default=50)
+    ap.add_argument("--device", default="auto",
+                    help="auto / cpu / cuda / cuda:1 ...")
     args = ap.parse_args()
     if args.episodes < 1 or args.env_horizon < 1 or args.minibatch < 1:
         ap.error("episodes、env-horizon 和 minibatch 必须为正整数")
 
+    if args.device == "auto":
+        device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    else:
+        device = torch.device(args.device)
+    if device.type == "cuda" and not torch.cuda.is_available():
+        ap.error("指定了 --device cuda 但当前环境没有可用 CUDA")
+    print("device:", device, flush=True)
+
     torch.manual_seed(args.seed)
     random.seed(args.seed)
+    if device.type == "cuda":
+        torch.cuda.manual_seed_all(args.seed)
 
     vocab = load_vocab()
     index = {t: i for i, t in enumerate(vocab)}
     n_vocab = len(vocab)
 
-    policy = CoEPolicy(vocab_size=n_vocab, hidden=args.hidden)
-    value = ValueHead(vocab_size=n_vocab, hidden=args.hidden)
+    policy = CoEPolicy(vocab_size=n_vocab, hidden=args.hidden).to(device)
+    value = ValueHead(vocab_size=n_vocab, hidden=args.hidden).to(device)
     opt_p = torch.optim.Adam(policy.parameters(), lr=args.lr)
     opt_v = torch.optim.Adam(value.parameters(), lr=args.lr)
 
@@ -91,7 +120,8 @@ def main():
         env = MCEnv(seed=args.seed * 100000 + ep, goal=args.goal,
                     horizon=args.env_horizon)
         obs = env.observe()
-        ids = torch.tensor([[index[t] for t in obs]], dtype=torch.long)
+        ids = torch.tensor([[index[t] for t in obs]], dtype=torch.long,
+                           device=device)
 
         values: List[torch.Tensor] = []
         rewards: List[float] = []
@@ -114,7 +144,8 @@ def main():
             seqs.append(ids.squeeze(0).tolist())
             for k in acts:
                 acts[k].append(action[k].detach().squeeze(0))
-            ids = torch.tensor([[index[t] for t in obs]], dtype=torch.long)
+            ids = torch.tensor([[index[t] for t in obs]], dtype=torch.long,
+                               device=device)
             if done:
                 break
 
@@ -125,16 +156,18 @@ def main():
             gae = 0.0
             for t in range(len(rewards) - 1, -1, -1):
                 nv = next_v if t == len(rewards) - 1 else values[t + 1]
-                delta = rewards[t] + args.gamma * float(nv) * masks[t] - float(values[t])
+                delta = (rewards[t]
+                         + args.gamma * float(nv) * masks[t]
+                         - float(values[t]))
                 gae = delta + args.gamma * 0.95 * masks[t] * gae
                 returns.insert(0, gae + float(values[t]))
-        targets = torch.tensor(returns, dtype=torch.float32)
+        targets = torch.tensor(returns, dtype=torch.float32, device=device)
         adv = targets - torch.cat(values)
         if adv.numel() > 1:
             adv = (adv - adv.mean()) / (adv.std(unbiased=False) + 1e-6)
 
-        X = torch.tensor(seqs, dtype=torch.long)
-        A = {k: torch.stack(v) for k, v in acts.items()}
+        X = torch.tensor(seqs, dtype=torch.long, device=device)
+        A = {k: torch.stack(v).to(device) for k, v in acts.items()}
 
         # 用采样到的动作重新算 logprob，每个样本使用自己的 advantage。
         # 一个 episode 切成多个 minibatch 做多次更新：
@@ -171,7 +204,8 @@ def main():
 
     os.makedirs(args.out, exist_ok=True)
     path = os.path.join(args.out, "reflex_policy.pt")
-    torch.save({"state_dict": policy.state_dict(),
+    torch.save({"state_dict": {k: v.detach().cpu()
+                               for k, v in policy.state_dict().items()},
                 "vocab_size": n_vocab,
                 "tokens": vocab,
                 "hidden": args.hidden}, path)
