@@ -49,7 +49,7 @@ curl -s -X POST http://127.0.0.1:18900/api/v1/move_to \
 | `session.tokenTtlHours` | `24` | token 有效期 |
 | `auth` | `{"type": "offline"}` | 认证适配器，见下 |
 | `readiness` | `{"type": "direct"}` | 就绪判定适配器，见下 |
-| `coe` | `{"enabled": false}` | CoE 下层控制器，见下 |
+| `coe` | `{"enabled": true}` | CoE 下层控制器，见下 |
 
 ### 认证（`auth`）
 
@@ -79,17 +79,20 @@ curl -s -X POST http://127.0.0.1:18900/api/v1/move_to \
 
 | 键 | 默认 | 说明 |
 |---|---|---|
-| `coe.enabled` | `false` | 登录后自动装上下层控制器 |
+| `coe.enabled` | `true` | 登录后自动装上下层控制器 |
 | `coe.policy` | `rule` | `rule` = 规则基线；`onnx` = 加载训练好的模型 |
 | `coe.modelPath` | `null` | ONNX 模型路径（`policy: "onnx"` 时必填） |
 | `coe.vocabPath` | `null` | L-obs 词表路径，默认用内置的 `src/coe/local-vocab.json` |
 | `coe.queueSize` | `4` | 待执行技能队列长度 |
-| `coe.llm.enabled` | `false` | 启用上层 LLM（本地 Ollama） |
+| `coe.llm.enabled` | `true` | 启用上层 LLM（本地 Ollama） |
 | `coe.llm.endpoint` | `http://127.0.0.1:11434` | Ollama 地址 |
 | `coe.llm.model` | `qwen2.5-mc:7b` | 决策模型名。基座是 `qwen2.5:7b`，用 `src/coe/Modelfile` 另注册，不覆盖基座 |
 | `coe.llm.keepAlive` | `30m` | 模型在显存里待多久（避免 50s 的冷启动重载） |
-| `coe.llm.timeoutMs` | `8000` | 单次调用超时 |
-| `coe.llm.maxSkills` | `2` | 一次最多接受几个技能 |
+| `coe.llm.timeoutMs` | `20000` | 单次调用超时。8 秒会在冷启动时失败，铁锭链也就不会执行 |
+| `coe.llm.temperature` | `0.1` | 采样温度。平静时代码会用铁锭链盖掉模型输出 |
+| `coe.llm.maxTokens` | `400` | 单次生成上限 |
+| `coe.llm.maxSkills` | `4` | 一次最多接受几个技能 |
+| `coe.llm.systemPrompt` | `null` | 为空时用 `src/coe/llm.js` 里的铁锭提示词 |
 
 手动装载用 `POST /api/v1/controller/attach`，下发技能用 `POST /api/v1/controller/submit`，
 让 LLM 规划一次用 `POST /api/v1/controller/plan`，

@@ -15,22 +15,22 @@ const DEFAULTS = {
   session: { tokenTtlHours: 24 },
   auth: { type: 'offline' },
   readiness: { type: 'direct' },
-  // CoE（链式专家）：下层反射控制器。默认关闭，用 controller/attach 端点按需装载。
+  // CoE（链式专家）：下层反射控制器。登录后自动装上。
   // policy='rule' 用规则基线；policy='onnx' 加载训练好的模型（见工作区 COE.md）。
   coe: {
-    enabled: false,
+    enabled: true,
     policy: 'rule',
     modelPath: null,
     vocabPath: null,
     queueSize: 4,
     // 上层 LLM（本地 Ollama）。enabled=false 时不建客户端，控制器只跑下层反射 + 手动技能。
     llm: {
-      enabled: false,
+      enabled: true,
       endpoint: 'http://127.0.0.1:11434',
       model: 'qwen2.5-mc:7b',
       keepAlive: '30m',
-      timeoutMs: 8000,
-      temperature: 0.2,
+      timeoutMs: 20000,
+      temperature: 0.1,
       maxTokens: 400,
       maxSkills: 4,
       systemPrompt: null

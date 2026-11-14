@@ -273,8 +273,8 @@ class OllamaClient {
     this.endpoint = opts.endpoint || 'http://127.0.0.1:11434'
     this.model = opts.model || 'qwen2.5-mc:7b'
     this.keepAlive = opts.keepAlive || '30m'
-    this.timeoutMs = opts.timeoutMs || 8000
-    this.temperature = opts.temperature === undefined ? 0.2 : opts.temperature
+    this.timeoutMs = opts.timeoutMs || 20000
+    this.temperature = opts.temperature === undefined ? 0.1 : opts.temperature
     this.maxTokens = opts.maxTokens || 400
     this.lastError = null
     this.lastLatencyMs = 0
